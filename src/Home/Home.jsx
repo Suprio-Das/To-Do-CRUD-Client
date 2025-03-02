@@ -12,6 +12,9 @@ const Home = () => {
             <div className='mt-3'>
                 <ToDoForm></ToDoForm>
             </div>
+            <div>
+                <h2 className='ms-5 text-xl my-11 font-semibold border-b-4 border-pink-500 w-32'>Listed To-Do</h2>
+            </div>
         </div>
     );
 };
