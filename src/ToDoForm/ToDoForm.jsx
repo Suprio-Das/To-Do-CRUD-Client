@@ -1,14 +1,21 @@
 const ToDoForm = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const description = form.description.value;
+        console.log({ name, description });
+    }
     return (
         <div>
             <h1 className="text-center text-xl font-semibold my-2">List Your Work</h1>
             <div className="mx-auto flex justify-center items-center w-[30%]">
-                <form className="w-full">
+                <form onSubmit={handleSubmit} className="w-full">
                     <div>
-                        <input type="text" placeholder="Meeting at 3:00 PM" className="input w-full mt-3" />
+                        <input type="text" placeholder="Meeting at 3:00 PM" name="name" className="input w-full mt-3" />
                     </div>
                     <div>
-                        <input type="textarea" placeholder="Description of the List..." className="textarea w-full mt-3" />
+                        <input type="textarea" placeholder="Description of the List..." name="description" className="textarea w-full mt-3" />
                     </div>
                     <div>
                         <input type="submit" value="Add to List" className="btn w-full mt-3" />
