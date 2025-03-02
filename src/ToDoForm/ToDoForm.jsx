@@ -4,7 +4,17 @@ const ToDoForm = () => {
         const form = e.target;
         const name = form.name.value;
         const description = form.description.value;
+        const todo = { name, description };
         console.log({ name, description });
+        fetch('http://localhost:5000/todo', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(todo)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
     return (
         <div>

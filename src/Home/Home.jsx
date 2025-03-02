@@ -1,8 +1,17 @@
+import { useEffect, useState } from 'react';
 import ToDoForm from '../ToDoForm/ToDoForm';
 import './Home.css'
 import { GiNotebook } from "react-icons/gi";
 
 const Home = () => {
+    const [todo, setToDo] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000')
+            .then(res => res.json())
+            .then(data => {
+                setToDo(data);
+            })
+    }, [])
     return (
         <div>
             <div className="mx-auto home-banner p-11">
