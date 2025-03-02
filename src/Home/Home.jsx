@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ToDoForm from '../ToDoForm/ToDoForm';
 import './Home.css'
 import { GiNotebook } from "react-icons/gi";
+import ToDoCard from '../ToDoCard/ToDoCard';
 
 const Home = () => {
     const [todo, setToDo] = useState([]);
@@ -21,8 +22,13 @@ const Home = () => {
             <div className='mt-3'>
                 <ToDoForm></ToDoForm>
             </div>
-            <div>
+            <div className='my-5'>
                 <h2 className='ms-5 text-xl my-11 font-semibold border-b-4 border-pink-500 w-32'>Listed To-Do</h2>
+                <div className='grid grid-cols-1 lg:grid-cols-4 ms-5 mx-auto'>
+                    {
+                        todo.map(singleToDo => <ToDoCard key={singleToDo._id} singleToDo={singleToDo}></ToDoCard>)
+                    }
+                </div>
             </div>
         </div>
     );
