@@ -4,6 +4,26 @@ import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router';
 
 const ToDoCard = ({ singleToDo }) => {
+    const handleUpdate = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const description = form.description.value;
+        const data = { name, description }
+        console.log(data);
+        fetch(`http://localhost:5000/todo/${singleToDo._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
+
     return (
         <div className='p-5 border-2 border-base-300 rounded-lg max-h-52 flex flex-col'>
             <div className='flex-grow'>
@@ -19,12 +39,12 @@ const ToDoCard = ({ singleToDo }) => {
             <dialog id={`${singleToDo._id}`} className="modal">
                 <div className="modal-box">
                     <div>
-                        <form className="w-full">
+                        <form className="w-full" onSubmit={handleUpdate}>
                             <div>
                                 <input type="text" defaultValue={singleToDo.name} name="name" className="input w-full mt-3" />
                             </div>
                             <div>
-                                <input type="textarea" defaultValue={singleToDo.description} name="description" className="textarea w-full mt-3" />
+                                <textarea defaultValue={singleToDo.description} name="description" className="textarea w-full mt-3" /> {/* Change to textarea */}
                             </div>
                             <div>
                                 <input type="submit" value="Update To-Do" className="btn w-full mt-3" />
@@ -33,14 +53,12 @@ const ToDoCard = ({ singleToDo }) => {
                     </div>
                     <div className="modal-action">
                         <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
                             <button className="btn">Close</button>
                         </form>
                     </div>
                 </div>
             </dialog>
         </div>
-
     );
 };
 

@@ -12,7 +12,7 @@ const Home = () => {
             .then(data => {
                 setToDo(data);
             })
-    }, [])
+    }, [todo])
     return (
         <div>
             <div className="mx-auto home-banner p-11">
