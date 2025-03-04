@@ -18,7 +18,19 @@ const ToDoCard = ({ singleToDo }) => {
             {/* Update Modal */}
             <dialog id={`${singleToDo._id}`} className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello from {singleToDo.name}!</h3>
+                    <div>
+                        <form className="w-full">
+                            <div>
+                                <input type="text" defaultValue={singleToDo.name} name="name" className="input w-full mt-3" />
+                            </div>
+                            <div>
+                                <input type="textarea" defaultValue={singleToDo.description} name="description" className="textarea w-full mt-3" />
+                            </div>
+                            <div>
+                                <input type="submit" value="Update To-Do" className="btn w-full mt-3" />
+                            </div>
+                        </form>
+                    </div>
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
