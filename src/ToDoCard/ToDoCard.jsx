@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdModeEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const ToDoCard = ({ singleToDo }) => {
     console.log(singleToDo)
@@ -10,7 +11,8 @@ const ToDoCard = ({ singleToDo }) => {
                 <p className='text-sm text-justify'>{singleToDo.description}</p>
             </div>
             <div className='mt-auto'>
-                <p className='btn bg-amber-400'>Edit <MdModeEdit /> </p>
+                <p className='btn bg-amber-400 mr-2'>Edit <MdModeEdit /> </p>
+                <p className='btn bg-red-500 mr-2 text-white'>Delete <MdDelete /> </p>
             </div>
         </div>
 
