@@ -29,6 +29,13 @@ const ToDoCard = ({ singleToDo }) => {
         fetch(`http://localhost:5000/todo/${singleToDo._id}`, {
             method: "DELETE"
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    alert('To-Do Deleted Successfully!');
+                }
+            })
     }
 
     return (
