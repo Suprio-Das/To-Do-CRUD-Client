@@ -24,6 +24,10 @@ const ToDoCard = ({ singleToDo }) => {
             })
     }
 
+    const handleDelete = () => {
+        console.log(`${singleToDo._id} need to be deleted!`);
+    }
+
     return (
         <div className='p-5 border-2 border-base-300 rounded-lg max-h-52 flex flex-col'>
             <div className='flex-grow'>
@@ -32,7 +36,7 @@ const ToDoCard = ({ singleToDo }) => {
             </div>
             <div className='mt-auto'>
                 <Link onClick={() => document.getElementById(`${singleToDo._id}`).showModal()} className='btn bg-amber-400 mr-2'>Edit <MdModeEdit /> </Link>
-                <Link className='btn bg-red-500 mr-2 text-white'>Delete <MdDelete /> </Link>
+                <Link onClick={handleDelete} className='btn bg-red-500 mr-2 text-white'>Delete <MdDelete /> </Link>
             </div>
 
             {/* Update Modal */}
