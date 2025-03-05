@@ -26,6 +26,9 @@ const ToDoCard = ({ singleToDo }) => {
 
     const handleDelete = () => {
         console.log(`${singleToDo._id} need to be deleted!`);
+        fetch(`http://localhost:5000/todo/${singleToDo._id}`, {
+            method: "DELETE"
+        })
     }
 
     return (
