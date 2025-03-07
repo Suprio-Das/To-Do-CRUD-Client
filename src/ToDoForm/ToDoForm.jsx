@@ -1,4 +1,5 @@
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ToDoForm = () => {
     const handleSubmit = (e) => {
@@ -37,7 +38,7 @@ const ToDoForm = () => {
                         <input type="text" placeholder="Meeting at 3:00 PM" name="name" className="input w-full mt-3" required />
                     </div>
                     <div>
-                        <input type="textarea" placeholder="Description of the List..." name="description" className="textarea w-full mt-3" required />
+                        <textarea type="textarea" placeholder="Description of the List..." name="description" className="textarea w-full mt-3" required />
                     </div>
                     <div>
                         <input type="submit" value="Add to List" className="btn w-full mt-3" />

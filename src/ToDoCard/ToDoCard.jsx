@@ -43,7 +43,15 @@ const ToDoCard = ({ singleToDo }) => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0) {
-                    alert('To-Do Deleted Successfully!');
+                    toast.success("To-Do updated successfully!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "light",
+                    });
                 }
             })
     }
