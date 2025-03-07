@@ -19,7 +19,7 @@ const ToDoForm = () => {
             .then(data => {
                 toast.success("To-Do added successfully!", {
                     position: "top-right",
-                    autoClose: 3000, // Close after 3 seconds
+                    autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

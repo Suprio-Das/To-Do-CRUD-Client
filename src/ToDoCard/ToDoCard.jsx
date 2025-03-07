@@ -2,6 +2,7 @@ import React from 'react';
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const ToDoCard = ({ singleToDo }) => {
     const handleUpdate = e => {
@@ -20,7 +21,15 @@ const ToDoCard = ({ singleToDo }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                toast.success("To-Do updated successfully!", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                });
             })
     }
 
@@ -61,7 +70,7 @@ const ToDoCard = ({ singleToDo }) => {
                                 <textarea defaultValue={singleToDo.description} name="description" className="textarea w-full mt-3" /> {/* Change to textarea */}
                             </div>
                             <div>
-                                <input type="submit" value="Update To-Do" className="btn w-full mt-3" />
+                                <button type="submit" value="" className="btn w-full mt-3">Update To-Do</button>
                             </div>
                         </form>
                     </div>
@@ -70,9 +79,11 @@ const ToDoCard = ({ singleToDo }) => {
                             <button className="btn">Close</button>
                         </form>
                     </div>
-                </div>
-            </dialog>
-        </div>
+                </div >
+            </dialog >
+            {/* Toaster */}
+            < ToastContainer />
+        </div >
     );
 };
 
