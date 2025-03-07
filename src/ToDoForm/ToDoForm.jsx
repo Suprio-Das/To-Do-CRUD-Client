@@ -22,10 +22,10 @@ const ToDoForm = () => {
             <div className="mx-auto flex justify-center items-center w-[30%]">
                 <form onSubmit={handleSubmit} className="w-full">
                     <div>
-                        <input type="text" placeholder="Meeting at 3:00 PM" name="name" className="input w-full mt-3" />
+                        <input type="text" placeholder="Meeting at 3:00 PM" name="name" className="input w-full mt-3" required />
                     </div>
                     <div>
-                        <input type="textarea" placeholder="Description of the List..." name="description" className="textarea w-full mt-3" />
+                        <input type="textarea" placeholder="Description of the List..." name="description" className="textarea w-full mt-3" required />
                     </div>
                     <div>
                         <input type="submit" value="Add to List" className="btn w-full mt-3" />
