@@ -1,3 +1,5 @@
+import { toast, ToastContainer } from "react-toastify";
+
 const ToDoForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +16,17 @@ const ToDoForm = () => {
             body: JSON.stringify(todo)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                toast.success("To-Do added successfully!", {
+                    position: "top-right",
+                    autoClose: 3000, // Close after 3 seconds
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                });
+            })
     }
     return (
         <div>
@@ -32,6 +44,8 @@ const ToDoForm = () => {
                     </div>
                 </form>
             </div>
+            {/* Success toast here */}
+            <ToastContainer />
         </div>
     );
 };
