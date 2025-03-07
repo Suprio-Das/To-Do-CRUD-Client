@@ -30,6 +30,7 @@ const ToDoCard = ({ singleToDo }) => {
                     draggable: true,
                     theme: "light",
                 });
+                document.getElementById(singleToDo._id).close();
             })
     }
 
