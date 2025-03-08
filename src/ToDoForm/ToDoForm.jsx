@@ -18,7 +18,7 @@ const ToDoForm = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.acknowledged === true) {
                     toast.success('To-do added successyfully', {
                         position: "top-right",
                         autoClose: 5000,
@@ -50,7 +50,6 @@ const ToDoForm = () => {
                 </form>
                 <ToastContainer />
             </div>
-            {/* Success toast here */}
         </div>
     );
 };

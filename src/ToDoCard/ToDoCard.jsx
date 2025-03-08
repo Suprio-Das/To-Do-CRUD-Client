@@ -67,6 +67,9 @@ const ToDoCard = ({ singleToDo }) => {
                 <Link onClick={handleDelete} className='btn bg-red-500 mr-2 text-white'>Delete <MdDelete /> </Link>
             </div>
 
+            {/* Toaster */}
+            < ToastContainer />
+
             {/* Update Modal */}
             <dialog id={`${singleToDo._id}`} className="modal">
                 <div className="modal-box">
@@ -90,8 +93,6 @@ const ToDoCard = ({ singleToDo }) => {
                     </div>
                 </div >
             </dialog >
-            {/* Toaster */}
-            < ToastContainer />
         </div >
     );
 };
