@@ -1,5 +1,4 @@
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const ToDoForm = () => {
     const handleSubmit = (e) => {
@@ -18,15 +17,20 @@ const ToDoForm = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success("To-Do added successfully!", {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    theme: "light",
-                });
+                console.log(data);
+                if (data.insertedId) {
+                    toast.success('To-do added successyfully', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                    });
+                }
             })
     }
     return (
@@ -44,9 +48,9 @@ const ToDoForm = () => {
                         <input type="submit" value="Add to List" className="btn w-full mt-3" />
                     </div>
                 </form>
+                <ToastContainer />
             </div>
             {/* Success toast here */}
-            <ToastContainer />
         </div>
     );
 };
